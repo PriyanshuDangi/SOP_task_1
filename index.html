@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Ball Burst</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <section id="main">
+      <h1>Ball Burst</h1>
+      <div class="item" onclick="init()">
+          Play
+      </div>
+      <div class="item" onclick="introduction()">
+          How To Play
+      </div>
+    </section>
+    <section id="introduction">
+      <section id="wrap">
+        <h2>INSTRUCTIONS</h2>
+        <p>
+        This is a fun bubble burst game in which bubbles appear at random places on the screen. The main aim of the player is to burst the bubbles before they fill up a
+        major part of the screen by tapping over the bubbles.If major part of screen is covered with bubbles for 10 seconds, the game ends. A timer will also be shown.
+        </p>
+        <h3>Bubbles</h3>
+        <p>All the randomlycolor changing bubble will be burst on one tap and will add one points to your score.
+           There will be rock bubble which will be of grey color and will not change its colors.
+           There eill be three dots over it and it will burst over 5 taps and will add 10 points to your total score.</p>
+        <h3>PowerUps</h3>
+        <b>1. Felix-Felicis</b>
+        <p> This will be present on the top right corner of the screen.This slows down the rate of generation of
+          bubbles for sometime. You can only use this twice throughout the game. </p>
+        <b>2. Gauntlet</b>
+        <p> This will come rarely on-screen on clicking which you make a snap and clear half of the
+          screen at once . It will be present at the top center.</p>
+        <div id="back" onclick="back()">
+            Back
+        </div>
+      </section>
+    </section>
+    <!-- <canvas></canvas> -->
+    <audio src="./assets/sounds/background.mp3" id="background" loop preload="auto"></audio>
+    <audio src="./assets/sounds/touch.wav" id="touch" preload="auto"></audio>
+    <audio src="./assets/sounds/end.wav" id="end" preload="auto"></audio>
+    <img src="./assets/images/playandpause/pause.png" id="pause">
+    <img src="./assets/images/playandpause/play.png" id="play">
+    <img src="./assets/images/powerups/sprite_black.jpg" id="sprites">
+    <script src="./canvas.js"></script>
+  </body>
+</html>
