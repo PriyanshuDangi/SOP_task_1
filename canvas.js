@@ -568,22 +568,22 @@ function resolveCollision(particle, otherParticle) {
 }
 
 
-//to start the game on click
+//to start the game on click play
 function play(){
-  var section = document.querySelector('#main');
-  section.style.display = "none";
+  var mainSection = document.getElementById('main');
+  mainSection.style.display = "none";
   init();
 }
 
 function introduction(){
-  var section = document.querySelector('#main');
-  section.style.display = "none";
+  var mainSection = document.querySelector('#main');
+  mainSection.style.display = "none";
   var section = document.querySelector('#introduction');
   section.style.display = "block";
 }
 function back(){
   var section = document.querySelector('#introduction');
   section.style.display = "none";
-  var section = document.querySelector('#main');
-  section.style.display = "block";
+  var mainSection = document.querySelector('#main');
+  mainSection.style.display = "block";
 }
