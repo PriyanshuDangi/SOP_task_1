@@ -23,13 +23,17 @@ var myGameArea = {
       bestScoreFunction();
       if(bestScore){
           if(bestScore <  score){
-              localStorage.setItem('colorswitch', JSON.stringify(score));
+              localStorage.setItem('ballburst', JSON.stringify(score));
               bestScore = score;
           }
       } else{
-          localStorage.setItem('colorswitch', JSON.stringify(score));
+          localStorage.setItem('ballburst', JSON.stringify(score));
           bestScore = score;
       }
+      var bestScoresObject = bestScores.concat(score);
+      var bestScoresJSON = JSON.stringify(bestScoresObject);
+      localStorage.setItem('ballburst', bestScoresJSON);            
+      // bestScoreFunction();
       //to wait for play again
       setTimeout(() => {
           var ctx = this.context;
@@ -411,6 +415,7 @@ function init() {
   gauntlet = new powerup(sprites, 0, 0, myGameArea.canvas.width/2, 15, "gauntlet");
   felixFelicis = new powerup(sprites, 640, 0, myGameArea.canvas.width - 130, 15, "felixFelicis");
   canvasElement.removeEventListener('click', init);
+  bestScoreFunction();
 }
 
 var bubbleGenration = 150;
@@ -514,9 +519,33 @@ function distance(x1, y1, x2, y2) {
 }
 
 var bestScore;
+// function bestScoreFunction(){
+//     if(localStorage.getItem("ballburst")){
+//        bestScore = parseInt(JSON.parse(localStorage.getItem("ballburst")));
+//     }
+// }
+
+var bestScores;
 function bestScoreFunction(){
-    if(localStorage.getItem("colorswitch")){
-       bestScore = parseInt(JSON.parse(localStorage.getItem("colorswitch")));
+    // difficulty = document.getElementById('difficulty').value;
+    if(localStorage.getItem('ballburst')){
+        bestScoresFull = JSON.parse(localStorage.getItem('ballburst'));
+        bestScoresFull.sort(function(a, b){return b - a});
+        bestScores = bestScoresFull.slice(0,5);
+        bestScore = parseInt(bestScores[0]);
+        //console.log(bestScores);
+        var para = document.querySelectorAll('#highscore p');
+
+        for(var par=0;par<5;par++){
+        para[par].textContent = "";
+        }
+
+        bestScores.forEach((element, index )=> {
+            para[index].textContent = bestScores[index]
+        })
+    }  else{
+        bestScores = [];
+        localStorage.setItem('ballburst', JSON.stringify(bestScores));
     }
 }
 
@@ -583,6 +612,19 @@ function introduction(){
 }
 function back(){
   var section = document.querySelector('#introduction');
+  section.style.display = "none";
+  var mainSection = document.querySelector('#main');
+  mainSection.style.display = "block";
+}
+function highscore(){
+  var mainSection = document.querySelector('#main');
+  mainSection.style.display = "none";
+  bestScoreFunction();
+  var highScoreSection = document.querySelector('#highscore');
+  highScoreSection.style.display = "block";
+}
+function backHome(){
+  var section = document.querySelector('#highscore');
   section.style.display = "none";
   var mainSection = document.querySelector('#main');
   mainSection.style.display = "block";

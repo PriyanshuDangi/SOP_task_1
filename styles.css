@@ -18,7 +18,7 @@ body > img{
     /* width: 60vmin; */
     /* height: 60vmin; */
     width: 300px;
-    height: 300px;
+    height: 350px;
     font-size: 30px;
     /* height: 100%; */
     /* height: 50vh; */
@@ -37,10 +37,10 @@ div{
     align-items: center;
     align-content: center;
     width: 80%;
-    height: 15%;
+    height: 13%;
     /* background-color: violet; */
     background-color: #32DBF0;
-    margin: 20% auto 10%;
+    margin: 10% auto 10%;
     cursor: pointer;
 }
 div:hover{
@@ -93,6 +93,32 @@ b{
     width: 90%;
     height: 70%;
     justify-content: center;
+}
+
+#highscore{
+    display: none;
+    margin: 100px auto;
+    background-color: yellow;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+    position: relative;
+}
+#highscore h2{
+    font-size: xx-large;
+}
+#highscore p{
+    width: 70%;
+    margin: auto;
+    background-color: #32DBF0;
+    font-size: x-large;
+    margin-bottom: 20px;
+}
+#backHome{
+    position: absolute;
+    width: 70%;
+    left: 15%;
+    top: 80%;
 }
 /* @media(max-width: 450px){
     section{
